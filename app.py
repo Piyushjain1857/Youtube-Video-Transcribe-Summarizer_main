@@ -5,3 +5,4 @@ from dotenv import load_dotenv
 from youtube_transcript_api import YouTubeTranscriptApi
 from google import genai
 
+load_dotenv()
