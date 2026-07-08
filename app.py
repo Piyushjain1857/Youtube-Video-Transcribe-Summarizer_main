@@ -33,6 +33,7 @@ def summarize_transcript(transcript_text):
     )
     return response.text
 
+youtube_url = st.text_input("Enter YouTube Video URL:")
 
 if youtube_url:
     video_id = extract_video_id(youtube_url)
