@@ -33,3 +33,19 @@ def summarize_transcript(transcript_text):
     )
     return response.text
 
+
+if youtube_url:
+    video_id = extract_video_id(youtube_url)
+    if video_id:
+        st.image(f"https://img.youtube.com/vi/{video_id}/maxresdefault.jpg", width=400)
+        if st.button("Generate Summary"):
+            with st.spinner("Processing..."):
+                try:
+                    transcript = get_transcript(video_id)
+                    summary = summarize_transcript(transcript)
+                    st.subheader("Summary")
+                    st.write(summary)
+                except Exception as e:
+                    st.error(str(e))
+    else:
+        st.error("Invalid YouTube URL.")
